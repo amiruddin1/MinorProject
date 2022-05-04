@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:fontFamily="@font/beth_ellen"
+            android:fontFamily="@font/poppins_thin_italic"
             android:text="Login Your Self"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -138,12 +138,13 @@
             android:id="@+id/txtlploginasAdmin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="124dp"
             android:text="Login As Admin"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/btnlpLogin"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.116"
             app:layout_constraintStart_toStartOf="parent" />
 
         " />

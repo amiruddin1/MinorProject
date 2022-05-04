@@ -14,9 +14,9 @@
         android:icon="@drawable/ic_baseline_shopping_cart_24"/>
 
     <item
-        android:id="@+id/nav_settings"
-        android:title="Settings"
-        android:icon="@drawable/ic_baseline_settings_24"/>
+        android:id="@+id/nav_orders"
+        android:title="MyOrders"
+        android:icon="@drawable/ic_baseline_bookmark_border_24"/>
 
     <item
         android:id="@+id/nav_logout"

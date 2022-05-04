@@ -48,7 +48,7 @@
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/beth_ellen"
+                    android:fontFamily="@font/poppins_thin_italic"
                     android:text="Create Your Account"
                     android:textSize="20sp"
                     android:textStyle="bold"

@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShoppingApplication">
         <activity
+            android:name=".Browse_product"
+            android:exported="false" />
+        <activity
+            android:name=".MyOrdersMain"
+            android:exported="false" />
+        <activity
+            android:name=".ManageProduct"
+            android:exported="false" />
+        <activity
+            android:name=".MainAdminPage"
+            android:exported="false" />
+        <activity
             android:name=".MainCart"
             android:exported="false" />
         <activity

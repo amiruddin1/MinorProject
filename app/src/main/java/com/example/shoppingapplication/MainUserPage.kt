@@ -1,19 +1,23 @@
 package com.example.shoppingapplication
 
+import android.app.Dialog
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.Toast
 import android.widget.ViewFlipper
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main_user_page.*
+import kotlinx.android.synthetic.main.myaccountdetaildialog.*
 
-class MainUserPage : AppCompatActivity() {
+class MainUserPage : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,10 +25,13 @@ class MainUserPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_user_page)
 
+        navigate.setNavigationItemSelectedListener(this)
+
         var actionBarDrawerToggle = ActionBarDrawerToggle(this,drawer_layout,R.string.nav_open, R.string.nav_close)
         drawer_layout.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
         supportActionBar?.setDisplayShowHomeEnabled(true)
+
 
 
         var imgArr = arrayOf(R.drawable.slide1, R.drawable.slide2, R.drawable.slide3, R.drawable.slide4)
@@ -32,44 +39,117 @@ class MainUserPage : AppCompatActivity() {
         {
             showImg(imgArr[i])
         }
-
         imageView4.setOnClickListener {
             Toast.makeText(this,"Electronics",Toast.LENGTH_SHORT).show()
+            var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
+            var prefeditor = preference.edit()
+            prefeditor.putString("UserName", "Electronics")
+            prefeditor.commit()
+            var intent = Intent(this,Browse_product::class.java)
+            startActivity(intent)
         }
         imageView5.setOnClickListener {
             Toast.makeText(this,"Electronics",Toast.LENGTH_SHORT).show()
+            var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
+            var prefeditor = preference.edit()
+            prefeditor.putString("UserName", "Electronics")
+            prefeditor.commit()
+            var intent = Intent(this,Browse_product::class.java)
+            startActivity(intent)
         }
         imageView6.setOnClickListener {
-            Toast.makeText(this,"Accessories",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"MobileAccessories",Toast.LENGTH_SHORT).show()
+            var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
+            var prefeditor = preference.edit()
+            prefeditor.putString("UserName", "MobileAccessories")
+            prefeditor.commit()
+            var intent = Intent(this,Browse_product::class.java)
+            startActivity(intent)
         }
         imageView7.setOnClickListener {
             Toast.makeText(this,"Footwear",Toast.LENGTH_SHORT).show()
+            var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
+            var prefeditor = preference.edit()
+            prefeditor.putString("UserName", "Footwear")
+            prefeditor.commit()
+            var intent = Intent(this,Browse_product::class.java)
+            startActivity(intent)
         }
         imageView8.setOnClickListener {
-            Toast.makeText(this,"Home Appliances",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"HomeAppliances",Toast.LENGTH_SHORT).show()
+            var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
+            var prefeditor = preference.edit()
+            prefeditor.putString("UserName", "HomeAppliances")
+            prefeditor.commit()
+            var intent = Intent(this,Browse_product::class.java)
+            startActivity(intent)
         }
         imageView9.setOnClickListener {
-            Toast.makeText(this,"Kids Wear",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"KidsWear",Toast.LENGTH_SHORT).show()
+            var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
+            var prefeditor = preference.edit()
+            prefeditor.putString("UserName", "KidsWear")
+            prefeditor.commit()
+            var intent = Intent(this,Browse_product::class.java)
+            startActivity(intent)
         }
         imageView10.setOnClickListener {
             Toast.makeText(this,"Crockery",Toast.LENGTH_SHORT).show()
+            var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
+            var prefeditor = preference.edit()
+            prefeditor.putString("UserName", "Crockery")
+            prefeditor.commit()
+            var intent = Intent(this,Browse_product::class.java)
+            startActivity(intent)
         }
         imageView11.setOnClickListener {
             Toast.makeText(this,"Stationery",Toast.LENGTH_SHORT).show()
+            var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
+            var prefeditor = preference.edit()
+            prefeditor.putString("UserName", "Stationery")
+            prefeditor.commit()
+            var intent = Intent(this,Browse_product::class.java)
+            startActivity(intent)
         }
         imageView12.setOnClickListener {
-            Toast.makeText(this,"Male Fashion",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"MaleClothing",Toast.LENGTH_SHORT).show()
+            var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
+            var prefeditor = preference.edit()
+            prefeditor.putString("UserName", "MaleClothing")
+            prefeditor.commit()
+            var intent = Intent(this,Browse_product::class.java)
+            startActivity(intent)
         }
         imageView13.setOnClickListener {
-            Toast.makeText(this,"Male Fashion",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"MaleClothing",Toast.LENGTH_SHORT).show()
+            var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
+            var prefeditor = preference.edit()
+            prefeditor.putString("UserName", "MaleClothing")
+            prefeditor.commit()
+            var intent = Intent(this,Browse_product::class.java)
+            startActivity(intent)
         }
         imageView14.setOnClickListener {
-            Toast.makeText(this,"Female Fashion",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"FemaleClothing",Toast.LENGTH_SHORT).show()
+            var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
+            var prefeditor = preference.edit()
+            prefeditor.putString("UserName", "FemaleClothing")
+            prefeditor.commit()
+            var intent = Intent(this,Browse_product::class.java)
+            startActivity(intent)
         }
         imageView15.setOnClickListener {
-            Toast.makeText(this,"Watches",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"WristWatches",Toast.LENGTH_SHORT).show()
+            var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
+            var prefeditor = preference.edit()
+            prefeditor.putString("UserName", "WristWatches")
+            prefeditor.commit()
+            var intent = Intent(this,Browse_product::class.java)
+            startActivity(intent)
         }
     }
+
+
 
     fun showImg (img:Int)
     {
@@ -94,16 +174,82 @@ class MainUserPage : AppCompatActivity() {
 
         if(item1.equals(R.id.menuLogout))
         {
+            var preference:SharedPreferences=getSharedPreferences("mypref", MODE_PRIVATE)
+            var prefeditor = preference.edit()
+            prefeditor.clear()
+            prefeditor.commit()
             var intent = Intent(this,MainLoginPage::class.java)
             startActivity(intent)
             finish()
         }
         else if(item1.equals(R.id.menuShoppingCart))
         {
+            var sp :SharedPreferences = getSharedPreferences("CartingProduct",AppCompatActivity.MODE_PRIVATE)
+            var prefEditor = sp.edit()
+            prefEditor.clear()
+            prefEditor.commit()
+
             var intent = Intent(this,MainCart::class.java)
             startActivity(intent)
         }
+        else if(item1.equals(R.id.menuMyOrders))
+        {
+            var intent = Intent(this,MyOrdersMain::class.java)
+            startActivity(intent)
+
+        }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        var id = item.itemId
+        when(id)
+        {
+            R.id.nav_account -> {
+                var preference: SharedPreferences = getSharedPreferences("mypref", MODE_PRIVATE)
+                var str = preference.getString("UserName", "tt")
+
+                Toast.makeText(this,"$str",Toast.LENGTH_LONG).show()
+                var db = DBHelper(this)
+                var arr = db.getUserInfo(str)
+
+                var dialog = Dialog(this)
+                dialog.setContentView(R.layout.myaccountdetaildialog)
+                dialog.setCancelable(false)
+                val lp = WindowManager.LayoutParams()
+                lp.copyFrom(dialog.window!!.attributes)
+                lp.width = WindowManager.LayoutParams.MATCH_PARENT
+                lp.height = WindowManager.LayoutParams.WRAP_CONTENT
+                lp.gravity = Gravity.CENTER
+                dialog.window!!.attributes = lp
+
+
+                dialog.show()
+                dialog.textView24.setText(arr[0].name)
+                dialog.textView26.setText(arr[0].email)
+                dialog.textView28.setText(arr[0].mobileNumber)
+                dialog.btnGotitMyProfile.setOnClickListener {
+                    dialog.dismiss()
+                }
+            }
+            R.id.nav_cart -> {
+                var intent = Intent(this, MainCart::class.java)
+                startActivity(intent)
+            }
+            R.id.nav_logout -> {
+                var preference:SharedPreferences=getSharedPreferences("mypref", MODE_PRIVATE)
+                var prefeditor = preference.edit()
+                prefeditor.clear()
+                prefeditor.commit()
+                var intent = Intent(this,MainLoginPage::class.java)
+                startActivity(intent)
+                finish()
+            }
+            R.id.nav_orders -> {
+                Toast.makeText(this,"Orders",Toast.LENGTH_LONG).show()
+            }
+        }
+        return true
     }
 }
 

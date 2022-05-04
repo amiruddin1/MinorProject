@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="20dp">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/imageView17"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/btnProceedToPay"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_mood_24" />
+
+            <TextView
+                android:id="@+id/txtRecyclerCartProductName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView17"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtRecyclerCartProductDesc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView17"
+                app:layout_constraintTop_toBottomOf="@+id/txtRecyclerCartProductName" />
+
+            <TextView
+                android:id="@+id/txtRecyclerCartProductPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView30"
+                app:layout_constraintTop_toBottomOf="@+id/txtRecyclerCartProductDesc" />
+
+            <TextView
+                android:id="@+id/txtRecyclerCartProductQty"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/btnRemoveFromCart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView31"
+                app:layout_constraintTop_toBottomOf="@+id/txtRecyclerCartProductPrice" />
+
+            <TextView
+                android:id="@+id/txtRecyclerCartProductId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toStartOf="@+id/textView31"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView17" />
+
+            <Button
+                android:id="@+id/btnRemoveFromCart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
+                android:text="Remove From Cart"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnProceedToPay" />
+
+            <Button
+                android:id="@+id/btnProceedToPay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="16dp"
+                android:text="Proceed To Pay"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="Price: "
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/imageView17"
+                app:layout_constraintTop_toBottomOf="@+id/txtRecyclerCartProductDesc" />
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="Quantity:"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/imageView17"
+                app:layout_constraintTop_toBottomOf="@+id/textView30" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

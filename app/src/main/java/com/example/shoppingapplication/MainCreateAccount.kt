@@ -1,11 +1,13 @@
 package com.example.shoppingapplication
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main_create_account.*
+import kotlinx.android.synthetic.main.activity_main_login_as_admin.*
 
 class MainCreateAccount : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,23 +34,21 @@ class MainCreateAccount : AppCompatActivity() {
             }
             else
             {
-//                var users = user(edtCAEmail.text.toString(),edtCAFName.text.toString(),edtCAEPassword.text.toString(),edtCAMobileNumber.text.toString())
-//                var db = DBHelper(this)
-//                var flag = db.insertUser(users)
-//                if(flag>0)
-//                {
-//                    Toast.makeText(this,"Your Details Submit Successfully.",Toast.LENGTH_LONG).show()
-//                    var intent = Intent(this,MainLoginPage::class.java)
-//                    startActivity(intent)
-//                    finish()
-//                }
-//                else
-//                {
-//                    Toast.makeText(this,"Email Already Regestered with Diffrent Account!",Toast.LENGTH_LONG).show()
-//                    var intent = Intent(this,MainLoginPage::class.java)
-//                    startActivity(intent)
-//                    finish()
-                //}
+                var uss = user(edtCAEmail.text.toString(),edtCAFName.text.toString(),edtCAEPassword.text.toString(),edtCAMobileNumber.text.toString())
+                var db = DBHelper(this)
+                var flag = db.insertUser(uss)
+
+                if(flag>0)
+                {
+                    Toast.makeText(this,"Account Created Successfully.",Toast.LENGTH_SHORT).show()
+                    var intent = Intent(this, MainLoginPage::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+                else
+                {
+                    Toast.makeText(this,"Some Problems Ocuurs while Inserting",Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }

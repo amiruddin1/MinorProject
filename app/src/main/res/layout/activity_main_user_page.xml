@@ -253,6 +253,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppins_thin_italic"
         android:text="@string/your_string_here"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -276,13 +277,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:textAlignment="center"
-        android:text="Copyright Reserved By Shivam Usturge / Amiruddin Samlayawala"
+        android:text="Design and Develop By Shivam Usturge / Amiruddin Samlayawala"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view3" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigate"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"

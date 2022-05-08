@@ -10,6 +10,7 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main_admin_page.*
 
 class MainAdminPage : AppCompatActivity() {
+    //TODO: PRODUCT STOCK MANAGEMENT SHOULD BE ADDED...
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_admin_page)
@@ -24,6 +25,20 @@ class MainAdminPage : AppCompatActivity() {
 
         btnAdminProductManage.setOnClickListener {
             var intent = Intent(this,ManageProduct::class.java)
+            startActivity(intent)
+        }
+        btnAdminMoreReports.setOnClickListener {
+            //TODO: REPORTS MANAGEMENT CODE SHOULD BE HERE
+            //CODE TO EXECUTE
+            //1. Total Amount of Product Sold
+            //2. Category wise Product Sold (Category Name, Amount)
+        }
+        btnAdmiManageUser.setOnClickListener {
+            var intent = Intent(this,AdminManageUser::class.java)
+            startActivity(intent)
+        }
+        btnAdmiManageCategory.setOnClickListener {
+            var intent = Intent(this,AdminManageCategory::class.java)
             startActivity(intent)
         }
     }

@@ -18,7 +18,7 @@ class ManageProduct : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         var flag:Int = 0
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_manage_product)
-
+        RefreshList()
         categories.add("Select Category")
 
         var dbt = DBHelper(this)
@@ -27,7 +27,6 @@ class ManageProduct : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         }
 
         btnAddNewProductAdmin.setOnClickListener {
-
             var dialog = Dialog(this)
             dialog.setContentView(R.layout.dialogue_addproduct)
             dialog.setCancelable(false)
@@ -73,11 +72,16 @@ class ManageProduct : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                         finish()
                     }
                 }
+                RefreshList()
             }
             dialog.btncloseDialogue.setOnClickListener{
                 dialog.dismiss()
             }
         }
+        RefreshList()
+    }
+    fun RefreshList()
+    {
         var db = DBHelper(this)
         var arr = db.RetrieveAllProduct()
         var adapter=MyProductAdapter(this,arr)

@@ -18,8 +18,7 @@ import kotlinx.android.synthetic.main.activity_main_user_page.*
 import kotlinx.android.synthetic.main.myaccountdetaildialog.*
 
 class MainUserPage : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener {
-
-
+    //TODO: SEARCH FUNTIONALITY SHOULD BE ADDED...
     override fun onCreate(savedInstanceState: Bundle?) {
         var slider:ViewFlipper
         super.onCreate(savedInstanceState)
@@ -246,7 +245,8 @@ class MainUserPage : AppCompatActivity() , NavigationView.OnNavigationItemSelect
                 finish()
             }
             R.id.nav_orders -> {
-                Toast.makeText(this,"Orders",Toast.LENGTH_LONG).show()
+                var intent = Intent(this, MyOrdersMain::class.java)
+                startActivity(intent)
             }
         }
         return true

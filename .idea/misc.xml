@@ -6,6 +6,8 @@
         <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/drawable/border.xml" value="0.192" />
         <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/drawable/roundicons.xml" value="0.2085" />
         <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/font/abril_fatface.xml" value="0.26666666666666666" />
+        <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/activity_admin_manage_category.xml" value="0.23645833333333333" />
+        <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/activity_admin_manage_user.xml" value="0.23645833333333333" />
         <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/activity_browse_product.xml" value="0.22239583333333332" />
         <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/activity_drawer.xml" value="0.23645833333333333" />
         <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/activity_main.xml" value="0.264" />
@@ -18,13 +20,18 @@
         <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/activity_main_user_page.xml" value="0.2" />
         <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/activity_manage_product.xml" value="0.23645833333333333" />
         <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/activity_my_orders_main.xml" value="0.23645833333333333" />
+        <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/activity_update_product_here.xml" value="0.23645833333333333" />
         <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/brose_product_recycler.xml" value="0.4412050534499514" />
         <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/cartproductrecycler.xml" value="0.2328125" />
         <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/cartproductsrecycler.xml" value="1.396875" />
+        <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/dialogue_addcategory.xml" value="0.23645833333333333" />
         <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/dialogue_addproduct.xml" value="0.23645833333333333" />
+        <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/dialogue_updateproduct.xml" value="0.23645833333333333" />
         <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/item_drawer_main.xml" value="0.23645833333333333" />
         <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/main_nav_toolbar.xml" value="0.23645833333333333" />
         <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/main_toolbar.xml" value="0.23645833333333333" />
+        <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/managecategoryrecycler.xml" value="0.23645833333333333" />
+        <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/manageusersrecycler.xml" value="0.23645833333333333" />
         <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/myaccountdetaildialog.xml" value="0.264" />
         <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/myordersrecycler.xml" value="0.4" />
         <entry key="..\:/Minor Project_1563/ShoppingApplication/app/src/main/res/layout/myproductrecyclerview.xml" value="0.264" />

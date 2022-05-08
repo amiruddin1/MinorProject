@@ -28,8 +28,8 @@ class DBHelper (context: Context) : SQLiteOpenHelper(context, DB_NAME,null, DB_V
         private const val F2_CATEGORY = "C_Name"
 
         private const val F1_PRODUCT = "P_Id"
-        private const val F3_PRODUCT = "P_Name"
         private const val F2_PRODUCT = "C_Id"
+        private const val F3_PRODUCT = "P_Name"
         private const val F4_PRODUCT = "P_Desc"
         private const val F5_PRODUCT = "P_Price"
         private const val F6_PRODUCT = "P_Qty"
@@ -131,6 +131,23 @@ class DBHelper (context: Context) : SQLiteOpenHelper(context, DB_NAME,null, DB_V
         return arr
     }
 
+    fun getAllUsers(): ArrayList<user> {
+        var db = this.readableDatabase
+        var arr = ArrayList<user>()
+        var q = "Select * from $TB1_NAME"
+        var cursor: Cursor = db.rawQuery(q, null)
+        while (cursor.moveToNext()) {
+            var id = cursor.getInt(0)
+            var uemail = cursor.getString(1)
+            var name = cursor.getString(2)
+            var password = cursor.getString(3)
+            var mobileNumber = cursor.getString(4)
+            var uss = user(id, uemail, name, password, mobileNumber)
+            arr.add(uss)
+        }
+        return arr
+    }
+
     fun AddProduct(arr: Product): Long {
         var db = this.readableDatabase
         var cn = ContentValues()
@@ -141,6 +158,28 @@ class DBHelper (context: Context) : SQLiteOpenHelper(context, DB_NAME,null, DB_V
         cn.put(F6_PRODUCT, arr.p_qty)
         var result = db.insert(TB_PRODUCT, null, cn)
         return result
+    }
+
+    fun DeleteProduct(id:Int):Int
+    {
+        var db=writableDatabase
+        var res = db.delete(TB_PRODUCT,"$F1_PRODUCT=$id",null)
+        db.close()
+        return res
+    }
+
+    fun UpdateProduct(p:Product) : Int
+    {
+        var db=writableDatabase
+        var cv=ContentValues()
+        cv.put(F2_PRODUCT,p.c_Id)
+        cv.put(F3_PRODUCT,p.p_name)
+        cv.put(F4_PRODUCT,p.p_desc)
+        cv.put(F5_PRODUCT,p.p_price)
+        cv.put(F6_PRODUCT,p.p_qty)
+        var flag=db.update(TB_PRODUCT,cv,"$F1_PRODUCT=${p.p_Id}",null)
+        db.close()
+        return flag
     }
 
     fun RetrieveAllProduct(): ArrayList<Product> {
@@ -244,6 +283,23 @@ class DBHelper (context: Context) : SQLiteOpenHelper(context, DB_NAME,null, DB_V
         return arr
     }
 
+    fun getAllTheCategories() : ArrayList<Category>
+    {
+        var db = readableDatabase
+        var query =
+            "Select * from $TB_CATEGORY"
+        var cursor = db.rawQuery(query, null)
+        var arr = ArrayList<Category>()
+        while (cursor.moveToNext())
+        {
+            var id = cursor.getInt(0)
+            var name = cursor.getString(1).toString()
+            var c = Category(id,name)
+            arr.add(c)
+        }
+        return arr
+    }
+
     fun cnameToCId(str :String) : Int
     {
         var db = readableDatabase
@@ -257,6 +313,21 @@ class DBHelper (context: Context) : SQLiteOpenHelper(context, DB_NAME,null, DB_V
             arr.add(id)
         }
         return arr[0].toString().toInt()
+    }
+
+    fun cIdtoName(id:Int) : String
+    {
+        var db = readableDatabase
+        var query =
+            "Select $F2_CATEGORY from $TB_CATEGORY where $F1_CATEGORY = '$id'"
+        var cursor = db.rawQuery(query, null)
+        var arr = ArrayList<String>()
+        while (cursor.moveToNext())
+        {
+            var name = cursor.getString(0).toString()
+            arr.add(name)
+        }
+        return arr[0].toString()
     }
 
     fun getUserInfo(str : String?) : ArrayList<user>
@@ -353,6 +424,16 @@ class DBHelper (context: Context) : SQLiteOpenHelper(context, DB_NAME,null, DB_V
         cn.put(F5_ORDERS,arr.pQty)
         cn.put(F6_ORDERS,arr.pGTotal)
         var res = db.insert(TB_ORDERS,null,cn)
+        return res
+    }
+
+    fun AddCategory (arr : Category) : Long
+    {
+        var db = writableDatabase
+        var cv = ContentValues()
+        cv.put(F2_CATEGORY,arr.c_name)
+
+        var res = db.insert(TB_CATEGORY,null,cv)
         return res
     }
 }

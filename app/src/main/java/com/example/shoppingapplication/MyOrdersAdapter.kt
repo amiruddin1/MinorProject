@@ -16,9 +16,9 @@ class MyOrdersAdapter (val context: Context, var arr:ArrayList<Orders>)
             view.txtmyordersOrderId.setText(p.O_id.toString())
             view.txtMyOrdersProductName.setText(p.p_name)
             view.txtMyOrdersProductId.text = p.p_id.toString()
-            view.txtMyOrdersProductPrice.text = p.o_price.toString()
+            view.txtMyOrdersProductPrice.text = (p.o_price/p.o_qty).toString()
             view.txtMyOrdersProductQuantity.text = p.o_qty.toString()
-            view.txtMyOrdersTotalAmount.text = (p.o_price * p.o_qty).toString()
+            view.txtMyOrdersTotalAmount.text = (p.o_price).toString()
         }
     }
 

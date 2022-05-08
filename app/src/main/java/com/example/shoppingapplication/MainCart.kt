@@ -19,8 +19,6 @@ class MainCart : AppCompatActivity() {
         var arr = ArrayList<Product>()
         var arr_cart = ArrayList<Cart>()
         var db = DBHelper(this)
-
-//        //TODO: Give Provision to Modify This ARR INSTEAD OF ADDING NEW (RESET) EVERY TIME
         arr = db.getProductByItsID(result.toString().toInt())
         Toast.makeText(this,"$result",Toast.LENGTH_LONG).show()
         if(arr.size>0)

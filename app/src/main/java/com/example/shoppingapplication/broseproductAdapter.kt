@@ -31,7 +31,6 @@ class broseproductAdapter (val context: Context, var arr:ArrayList<Product>)
         var view= inflater.inflate(R.layout.brose_product_recycler,parent,false)
         return broseproductAdapter.ViewHolder(view)
     }
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int)  {
         holder.bind(arr[position])
         holder.itemView.btnbroseaddtocart.setOnClickListener {
@@ -41,12 +40,40 @@ class broseproductAdapter (val context: Context, var arr:ArrayList<Product>)
             prefEditor.putString("CartQTY",holder.itemView.edtbroseproductqty.text.toString())
             prefEditor.commit()
 
-            var intent = Intent(context, MainCart::class.java)
-            context.startActivity(intent)
-            (context as Browse_product).finish()
+            var db = DBHelper(context)
+            var res = db.GetStock(arr[position].p_Id)
+            if(res.toString().toInt() > holder.itemView.edtbroseproductqty.text.toString().toInt())
+            {
+                db.UpdateStock(arr[position].p_Id,res - holder.itemView.edtbroseproductqty.text.toString().toInt())
+                var intent = Intent(context, MainCart::class.java)
+                context.startActivity(intent)
+                (context as Browse_product).finish()
+            }
+            else
+            {
+                Toast.makeText(context, "Product Out of Stock!! Stay Tuned!",Toast.LENGTH_LONG).show()
+            }
         }
         holder.itemView.btnbrosebuynow.setOnClickListener {
+            var sp :SharedPreferences = context.getSharedPreferences("CartingProduct",AppCompatActivity.MODE_PRIVATE)
+            var prefEditor = sp.edit()
+            prefEditor.putString("CartProduct",arr[position].p_Id.toString())
+            prefEditor.putString("CartQTY",holder.itemView.edtbroseproductqty.text.toString())
+            prefEditor.commit()
 
+            var db = DBHelper(context)
+            var res = db.GetStock(arr[position].p_Id)
+            if(res.toString().toInt() > holder.itemView.edtbroseproductqty.text.toString().toInt())
+            {
+                db.UpdateStock(arr[position].p_Id,res - holder.itemView.edtbroseproductqty.text.toString().toInt())
+                var intent = Intent(context, MainCart::class.java)
+                context.startActivity(intent)
+                (context as Browse_product).finish()
+            }
+            else
+            {
+                Toast.makeText(context, "Product Out of Stock!! Stay Tuned!",Toast.LENGTH_LONG).show()
+            }
         }
     }
 

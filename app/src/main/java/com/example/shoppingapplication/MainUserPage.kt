@@ -5,26 +5,46 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
-import android.view.Menu
-import android.view.MenuItem
-import android.view.WindowManager
-import android.widget.ImageView
-import android.widget.Toast
-import android.widget.ViewFlipper
+import android.view.*
+import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main_user_page.*
+import kotlinx.android.synthetic.main.activity_main_user_page.spinner
+import kotlinx.android.synthetic.main.dialogue_addproduct.*
 import kotlinx.android.synthetic.main.myaccountdetaildialog.*
 
-class MainUserPage : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener {
+class MainUserPage : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemSelectedListener {
     //TODO: SEARCH FUNTIONALITY SHOULD BE ADDED...
+    var categories = ArrayList<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         var slider:ViewFlipper
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_user_page)
-
         navigate.setNavigationItemSelectedListener(this)
+
+        categories.add("Select Category")
+        var dbt = DBHelper(this)
+        for (i in 0 .. dbt.getAllCategories().size-1){
+            categories.add(dbt.getAllCategories()[i].toString())
+        }
+
+        spinner.onItemSelectedListener = this
+        val ad: ArrayAdapter<*> = ArrayAdapter<Any?>(this,android.R.layout.simple_spinner_item,
+            categories as List<Any?>
+        )
+        ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = ad
+
+        btnGoUserPage.setOnClickListener {
+            var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
+            var prefeditor = preference.edit()
+            prefeditor.putString("UserName", "${spinner.selectedItem}")
+            prefeditor.commit()
+            var intent = Intent(this,Browse_product::class.java)
+            startActivity(intent)
+        }
+
 
         var actionBarDrawerToggle = ActionBarDrawerToggle(this,drawer_layout,R.string.nav_open, R.string.nav_close)
         drawer_layout.addDrawerListener(actionBarDrawerToggle)
@@ -39,7 +59,6 @@ class MainUserPage : AppCompatActivity() , NavigationView.OnNavigationItemSelect
             showImg(imgArr[i])
         }
         imageView4.setOnClickListener {
-            Toast.makeText(this,"Electronics",Toast.LENGTH_SHORT).show()
             var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
             var prefeditor = preference.edit()
             prefeditor.putString("UserName", "Electronics")
@@ -48,7 +67,6 @@ class MainUserPage : AppCompatActivity() , NavigationView.OnNavigationItemSelect
             startActivity(intent)
         }
         imageView5.setOnClickListener {
-            Toast.makeText(this,"Electronics",Toast.LENGTH_SHORT).show()
             var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
             var prefeditor = preference.edit()
             prefeditor.putString("UserName", "Electronics")
@@ -57,7 +75,6 @@ class MainUserPage : AppCompatActivity() , NavigationView.OnNavigationItemSelect
             startActivity(intent)
         }
         imageView6.setOnClickListener {
-            Toast.makeText(this,"MobileAccessories",Toast.LENGTH_SHORT).show()
             var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
             var prefeditor = preference.edit()
             prefeditor.putString("UserName", "MobileAccessories")
@@ -66,7 +83,6 @@ class MainUserPage : AppCompatActivity() , NavigationView.OnNavigationItemSelect
             startActivity(intent)
         }
         imageView7.setOnClickListener {
-            Toast.makeText(this,"Footwear",Toast.LENGTH_SHORT).show()
             var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
             var prefeditor = preference.edit()
             prefeditor.putString("UserName", "Footwear")
@@ -75,7 +91,6 @@ class MainUserPage : AppCompatActivity() , NavigationView.OnNavigationItemSelect
             startActivity(intent)
         }
         imageView8.setOnClickListener {
-            Toast.makeText(this,"HomeAppliances",Toast.LENGTH_SHORT).show()
             var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
             var prefeditor = preference.edit()
             prefeditor.putString("UserName", "HomeAppliances")
@@ -84,7 +99,6 @@ class MainUserPage : AppCompatActivity() , NavigationView.OnNavigationItemSelect
             startActivity(intent)
         }
         imageView9.setOnClickListener {
-            Toast.makeText(this,"KidsWear",Toast.LENGTH_SHORT).show()
             var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
             var prefeditor = preference.edit()
             prefeditor.putString("UserName", "KidsWear")
@@ -93,7 +107,6 @@ class MainUserPage : AppCompatActivity() , NavigationView.OnNavigationItemSelect
             startActivity(intent)
         }
         imageView10.setOnClickListener {
-            Toast.makeText(this,"Crockery",Toast.LENGTH_SHORT).show()
             var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
             var prefeditor = preference.edit()
             prefeditor.putString("UserName", "Crockery")
@@ -102,7 +115,6 @@ class MainUserPage : AppCompatActivity() , NavigationView.OnNavigationItemSelect
             startActivity(intent)
         }
         imageView11.setOnClickListener {
-            Toast.makeText(this,"Stationery",Toast.LENGTH_SHORT).show()
             var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
             var prefeditor = preference.edit()
             prefeditor.putString("UserName", "Stationery")
@@ -111,7 +123,6 @@ class MainUserPage : AppCompatActivity() , NavigationView.OnNavigationItemSelect
             startActivity(intent)
         }
         imageView12.setOnClickListener {
-            Toast.makeText(this,"MaleClothing",Toast.LENGTH_SHORT).show()
             var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
             var prefeditor = preference.edit()
             prefeditor.putString("UserName", "MaleClothing")
@@ -120,7 +131,6 @@ class MainUserPage : AppCompatActivity() , NavigationView.OnNavigationItemSelect
             startActivity(intent)
         }
         imageView13.setOnClickListener {
-            Toast.makeText(this,"MaleClothing",Toast.LENGTH_SHORT).show()
             var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
             var prefeditor = preference.edit()
             prefeditor.putString("UserName", "MaleClothing")
@@ -129,7 +139,6 @@ class MainUserPage : AppCompatActivity() , NavigationView.OnNavigationItemSelect
             startActivity(intent)
         }
         imageView14.setOnClickListener {
-            Toast.makeText(this,"FemaleClothing",Toast.LENGTH_SHORT).show()
             var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
             var prefeditor = preference.edit()
             prefeditor.putString("UserName", "FemaleClothing")
@@ -138,7 +147,6 @@ class MainUserPage : AppCompatActivity() , NavigationView.OnNavigationItemSelect
             startActivity(intent)
         }
         imageView15.setOnClickListener {
-            Toast.makeText(this,"WristWatches",Toast.LENGTH_SHORT).show()
             var preference: SharedPreferences = getSharedPreferences("MyCategory", MODE_PRIVATE)
             var prefeditor = preference.edit()
             prefeditor.putString("UserName", "WristWatches")
@@ -161,6 +169,16 @@ class MainUserPage : AppCompatActivity() , NavigationView.OnNavigationItemSelect
         slider.setInAnimation(this, android.R.anim.slide_in_left)
         slider.setOutAnimation(this,android.R.anim.slide_out_right)
 
+    }
+
+    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+        Toast.makeText(applicationContext,
+            categories[p2],
+            Toast.LENGTH_LONG)
+            .show()
+    }
+
+    override fun onNothingSelected(p0: AdapterView<*>?) {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

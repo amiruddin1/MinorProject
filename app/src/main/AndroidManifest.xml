@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShoppingApplication">
         <activity
+            android:name=".List_Product_StockManagement"
+            android:exported="false" />
+        <activity
+            android:name=".ListOfProduct_StockManagement"
+            android:exported="false" />
+        <activity
             android:name=".UpdateProductHere"
             android:exported="false" />
         <activity

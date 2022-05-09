@@ -36,9 +36,6 @@ class MyProductAdapter (val context: Context, var arr:ArrayList<Product>)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(arr[position])
         holder.itemView.btnUpdateMyRecyclerData.setOnClickListener {
-            //TODO: Update Code Will Be Here
-//            var intent = Intent(context,UpdateProductHere::class.java)
-//            context.startActivity(intent)
             var dialog = Dialog(con)
             dialog.setContentView(R.layout.dialogue_updateproduct)
             dialog.setCancelable(false)
@@ -72,9 +69,17 @@ class MyProductAdapter (val context: Context, var arr:ArrayList<Product>)
                     context.startActivity(intent)
                     (context as Activity).finish()
                 }
+                else
+                {
+                    Toast.makeText(context,"Having Problems..", Toast.LENGTH_LONG).show()
+                    var intent = Intent(context,ManageProduct::class.java)
+                    context.startActivity(intent)
+                    (context as Activity).finish()
+                }
             }
 
         }
+        //TODO: Testing The Application Pending...
         holder.itemView.btnDeleteMyRecyclerData.setOnClickListener {
             var db = DBHelper(context)
             var res = db.DeleteProduct(arr[position].p_Id)
@@ -93,7 +98,6 @@ class MyProductAdapter (val context: Context, var arr:ArrayList<Product>)
                 context.startActivity(intent)
                 (context as Activity).finish()
             }
-                //context.update(position)
         }
     }
 

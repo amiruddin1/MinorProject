@@ -20,7 +20,6 @@ class MainCart : AppCompatActivity() {
         var arr_cart = ArrayList<Cart>()
         var db = DBHelper(this)
         arr = db.getProductByItsID(result.toString().toInt())
-        Toast.makeText(this,"$result",Toast.LENGTH_LONG).show()
         if(arr.size>0)
         {
             var ct = Cart(arr[0].p_Id,arr[0].p_name,arr[0].p_desc,arr[0].p_price,qty.toInt(),(arr[0].p_price.toInt()*qty.toInt()).toDouble())

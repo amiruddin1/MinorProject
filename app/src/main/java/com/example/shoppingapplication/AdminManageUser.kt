@@ -16,7 +16,6 @@ class AdminManageUser : AppCompatActivity() {
     {
         var db = DBHelper(this)
         var arr = db.getAllUsers()
-        Toast.makeText(this,"${arr.size}",Toast.LENGTH_LONG).show()
         var ad = ManageUsersRCVAdapter(this,arr)
         RCVManageUser.adapter = ad
     }

@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainUserPage"
+    android:background="@drawable/gradiant2"
     tools:ignore="HardcodedText">
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -255,7 +256,8 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/poppins_thin_italic"
         android:text="@string/your_string_here"
-        android:textSize="30sp"
+        android:textSize="20sp"
+        android:gravity="center"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -271,16 +273,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:textAlignment="center"
-        android:text="Design and Develop By Shivam Usturge / Amiruddin Samlayawala"
-        app:layout_constraintEnd_toEndOf="parent"
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="259dp"
+        android:layout_height="32dp"
+        android:layout_margin="10dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/border"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+    <Button
+        android:id="@+id/btnGoUserPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:text="Go"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/spinner"
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView

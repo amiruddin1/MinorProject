@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/grediant1"
     android:layout_height="match_parent"
     tools:context=".MainLoginPage">
 
@@ -89,8 +90,8 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtlpPassword"
-                android:layout_width="match_parent"
-                android:layout_height="79dp"
+                android:layout_width="364dp"
+                android:layout_height="match_parent"
                 android:hint="Enter Your Password" />
         </com.google.android.material.textfield.TextInputLayout>
 

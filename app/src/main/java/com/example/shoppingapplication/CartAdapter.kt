@@ -19,6 +19,7 @@ class CartAdapter(val context: Context, var arr:ArrayList<Cart>)
 
     class ViewHolder(var view: View) : RecyclerView.ViewHolder(view) {
         fun bind(p: Cart) {
+            view.txtRecycleCartCartId.setText(p.cartId.toString())
             view.txtRecyclerCartProductId.setText(p.pId.toString())
             view.txtRecyclerCartProductName.setText(p.pName)
             view.txtRecyclerCartProductDesc.setText(p.pDesc)
@@ -43,7 +44,7 @@ class CartAdapter(val context: Context, var arr:ArrayList<Cart>)
                 .setPositiveButton(android.R.string.yes,
                     DialogInterface.OnClickListener { dialog, whichButton ->
                         var db = DBHelper(context)
-                        var res= db.RemoveFromCart(arr[position].pId)
+                        var res= db.RemoveFromCart(arr[position].cartId)
 
                         if(res > 0)
                         {

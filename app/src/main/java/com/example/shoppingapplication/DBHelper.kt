@@ -410,7 +410,7 @@ class DBHelper (context: Context) : SQLiteOpenHelper(context, DB_NAME,null, DB_V
     fun RemoveFromCart(id:Int) : Int
     {
         var db = readableDatabase
-        var del= db.delete(TB_CART, F2_CART + " = " + id,null)
+        var del= db.delete(TB_CART, F1_CART + " = " + id,null)
         return del
     }
 
@@ -435,5 +435,44 @@ class DBHelper (context: Context) : SQLiteOpenHelper(context, DB_NAME,null, DB_V
 
         var res = db.insert(TB_CATEGORY,null,cv)
         return res
+    }
+
+    // FUNCTION OF INCREASE STOCK MANAGEMENT
+    fun GetStock(id:Int) : Int
+    {
+        var arr = ArrayList<Int>()
+        var db = writableDatabase
+        var query =
+            "Select * from $TB_PRODUCT Where $F1_PRODUCT = '$id'"
+        var cur = db.rawQuery(query,null)
+        while(cur.moveToNext())
+        {
+            var stock = cur.getInt(5)
+            arr.add(stock)
+        }
+        return arr[0]
+    }
+
+    fun UpdateStock(id:Int,value:Int)
+    {
+        var db = writableDatabase
+        var query =
+            "Update $TB_PRODUCT set $F6_PRODUCT = '$value' Where $F1_PRODUCT = '$id'"
+        db.execSQL(query)
+    }
+
+    fun GetTotalSale() : Int
+    {
+        var arr = ArrayList<Int>()
+        var db = readableDatabase
+        var sql =
+            "select sum($F6_ORDERS) from $TB_ORDERS"
+        var cursor = db.rawQuery(sql,null)
+        while(cursor.moveToNext())
+        {
+            var result = cursor.getInt(0)
+            arr.add(result)
+        }
+        return arr[0]
     }
 }

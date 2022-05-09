@@ -1,16 +1,21 @@
 package com.example.shoppingapplication
 
+import android.app.Dialog
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
+import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main_admin_page.*
+import kotlinx.android.synthetic.main.reports_management_dialog.*
+import java.text.NumberFormat
+import java.util.*
 
 class MainAdminPage : AppCompatActivity() {
-    //TODO: PRODUCT STOCK MANAGEMENT SHOULD BE ADDED...
+    // PRODUCT STOCK MANAGEMENT SHOULD BE ADDED...
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_admin_page)
@@ -28,10 +33,26 @@ class MainAdminPage : AppCompatActivity() {
             startActivity(intent)
         }
         btnAdminMoreReports.setOnClickListener {
-            //TODO: REPORTS MANAGEMENT CODE SHOULD BE HERE
-            //CODE TO EXECUTE
-            //1. Total Amount of Product Sold
-            //2. Category wise Product Sold (Category Name, Amount)
+            var dialog = Dialog(this)
+            dialog.setContentView(R.layout.reports_management_dialog)
+            dialog.setCancelable(false)
+            val lp = WindowManager.LayoutParams()
+            lp.copyFrom(dialog.window!!.attributes)
+            lp.width = WindowManager.LayoutParams.MATCH_PARENT
+            lp.height = WindowManager.LayoutParams.WRAP_CONTENT
+            lp.gravity = Gravity.CENTER
+
+            dialog.window!!.attributes = lp
+            dialog.show()
+            var db = DBHelper(this)
+            var result = db.GetTotalSale()
+            val format: NumberFormat = NumberFormat.getCurrencyInstance()
+            format.setMaximumFractionDigits(0)
+            dialog.txtTotalSaleReports.setText(format.format(result))
+
+            dialog.btnDoneFromReportsDialog.setOnClickListener {
+                dialog.dismiss()
+            }
         }
         btnAdmiManageUser.setOnClickListener {
             var intent = Intent(this,AdminManageUser::class.java)

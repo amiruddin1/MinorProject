@@ -23,7 +23,6 @@ class MyOrdersMain : AppCompatActivity(){
         var preference: SharedPreferences = getSharedPreferences("mypref", MODE_PRIVATE)
         var str = preference.getString("UserName", "tt")
 
-        Toast.makeText(this,"$str",Toast.LENGTH_LONG).show()
         var db = DBHelper(this)
         arr = db.getuserOrders(str)
 

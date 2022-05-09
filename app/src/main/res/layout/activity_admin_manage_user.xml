@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradiant2"
     tools:context=".AdminManageUser">
 
     <TextView
@@ -14,7 +15,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Our Categories"
+        android:text="Users"
         android:textAlignment="center"
         android:textSize="30sp"
         android:textStyle="bold|italic"

@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_manage_product.*
 import kotlinx.android.synthetic.main.dialogue_addproduct.*
+import kotlinx.android.synthetic.main.reports_management_dialog.*
 
 class ManageProduct : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     var categories = ArrayList<String>()
@@ -78,6 +79,10 @@ class ManageProduct : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 dialog.dismiss()
             }
         }
+        btnIncreaseStockProduct.setOnClickListener {
+            var intent = Intent(this,List_Product_StockManagement::class.java)
+            startActivity(intent)
+        }
         RefreshList()
     }
     fun RefreshList()
@@ -113,13 +118,9 @@ class ManageProduct : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     }
 
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        Toast.makeText(applicationContext,
-            categories[p2],
-            Toast.LENGTH_LONG)
-            .show()
+
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {
-        TODO("Not yet implemented")
     }
 }
